@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Diri</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #1a01ff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2em;
+            color: white;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            color: white;
+            margin-top: 20px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        p {
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 8px 12px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #0433ccf3;
+            background-color: rgb(255, 255, 255);
+            border-color: rgb(14, 47, 233);
+        }
+
+        .page {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            color: white;
+            background-color: rgb(7, 213, 240);
+            border: none;
+            border-radius: 4px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: rgb(4, 202, 236);
+            color: #0433ccf3;
+        }
+
+        .tombol {
+            color: black;
+            background-color: rgb(0, 177, 247);
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .container {
+                padding: 15px;
+            }
+        }
+
+        .profile-picture {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 20px auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Page Utama: Halaman Utama -->
+    <div class="page" id="halaman-utama">
+        <h1>HALAMAN UTAMA</h1>
+        <img src="foto1.jpg" alt="Dindaaaaaaa" class="profile-picture">
+        <p>Selamat Datang di Biodata Saya</p>
+        <p>Ini adalah sebuah web yang menampilkan biodata saya, mulai dari Profil, Pendidikan, Pengalaman, hingga Media Sosial</p>
+        <p>Silahkan pilih apa yang ingin Anda lihat tentang saya:</p>
+        <nav>
+            <ul>
+                <li><a href="#profil" class="tombol">Profil</a></li>
+                <li><a href="#pendidikan" class="tombol">Pendidikan</a></li>
+                <li><a href="#pengalaman" class="tombol">Pengalaman</a></li>
+                <li><a href="#sosial-media" class="tombol">Sosial Media</a></li>
+            </ul>
+        </nav>
+    </div>
+        <div class="container">
+            <!-- Page Utama: Profil Umum -->
+            <div class="page" id="profil">
+                <h1>BIODATA</h1>
+                <img src="foto1.jpg" alt="Dindaaaaaaa" class="profile-picture">
+                <h2>PROFIL</h2>
+                <p>Dinda sukmaningsih</p>
+                <p>Kuningan, 13 Juni 2003</p>
+                <p>Desa sukajaya, Kecamatan Cimahi, Kabupaten Kuningan</p>
+                <p>081221077171</p>
+                <p>20230910128@uniku.ac.id</p>
+                <nav>
+                    <button onclick="window.location.href='index.html'">Kembali ke Halaman Utama</button>
+                </nav>
+            </div>
+
+            <!-- Page Pendidikan -->
+            <div class="page" id="pendidikan">
+                <h1>PENDIDIKAN</h1>
+                <img src="foto1.jpg".jpg" alt="Dindaaaaaaa" class="profile-picture">
+                <p>SDN 1 Cidahu (2011 - 2017)</p>
+                <p>SMPN 1 Cidahu (2017 - 2020)</p>
+                <p>SMAN 1 Ciawigebang (2020 - 2023)</p>
+                <p>Universitas Pendidikan Indonesia (2023 - Sekarang)</p>
+                <button onclick="window.location.href='index.html'">Kembali ke Halaman Utama</button>
+            </div>
+
+        </div>
+</body>
+</html>
