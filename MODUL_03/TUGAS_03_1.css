@@ -45,6 +45,9 @@ img {
     padding: 0px;
     border: none;
   }
+  .blok table:hover {  
+    background-color: red;  
+  } 
 
   .kiri {
     width: 100%;
@@ -54,4 +57,6 @@ img {
     width: 100%;
     padding: 0;
   }
+ 
+  
 }
