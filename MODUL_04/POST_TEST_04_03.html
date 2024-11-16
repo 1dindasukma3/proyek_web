@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>local Scope dan global scope</title>
+  </head>
+  <body>
+    <script>
+      // Global scope
+      let globalVariable = "Ini adalah variabel global";
+
+      function myFunction() {
+        // Local scope
+        let localVariable = "Ini adalah variabel lokal";
+
+        console.log(globalVariable); // Dapat diakses
+        console.log(localVariable); // Dapat diakses
+      }
+
+      myFunction();
+
+      console.log(globalVariable); // Dapat diakses
+      console.log(localVariable); // Error: localVariable is not defined
+    </script>
+  </body>
+</html>

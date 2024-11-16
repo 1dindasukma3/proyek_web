@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perbedaan var, let dan const</title>
+  </head>
+  <body>
+    <script>
+      // contoh kode var
+      function exampleVar() {
+        if (true) {
+          var x = 10; // x dideklarasikan dengan var
+        }
+        console.log(x); // Output: 10, x dapat diakses di luar blok if
+      }
+      exampleVar();
+
+      // contoh kode menggunakan let
+      function exampleLet() {
+        if (true) {
+          let y = 20; // y dideklarasikan dengan let
+          console.log(y); // Output: 20, y dapat diakses di dalam blok if
+        }
+      }
+      exampleLet();
+
+      // contoh kode menggunakan const
+      function exampleConst() {
+        if (true) {
+          const z = 30; // z dideklarasikan dengan const
+          console.log(z); // Output: 30, z dapat diakses di dalam blok if
+        }
+      }
+      exampleConst();
+    </script>
+  </body>
+</html>
