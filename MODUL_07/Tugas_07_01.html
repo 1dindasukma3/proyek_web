@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inventaris</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 20px;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid #ddd;
+      }
+      th,
+      td {
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f4f4f4;
+      }
+      .form-container {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Manajemen Inventaris</h1>
+    <button onclick="fetchItems()">Tampilkan Data</button>
+    <table id="inventoryTable">
+      <thead>
+        <tr>
+          <th>ID Barang</th>
+          <th>Nama Barang</th>
+          <th>Jumlah</th>
+          <th>Kategori</th>
+          <th>Tanggal Diperbarui</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div class="form-container">
+      <h3>Tambah Barang</h3>
+      <form id="addItemForm">
+        <label>ID Barang: <input type="text" id="id" required /></label><br />
+        <label>Nama Barang: <input type="text" id="name" required /></label
+        ><br />
+        <label>Jumlah: <input type="number" id="quantity" required /></label
+        ><br />
+        <label>Kategori: <input type="text" id="category" required /></label
+        ><br />
+        <label
+          >Tanggal Diperbarui:
+          <input type="date" id="updatedAt" required /></label
+        ><br />
+        <button type="submit">Tambah</button>
+      </form>
+    </div>
+
+    <script>
+      const API_URL =
+        "https://script.google.com/macros/s/AKfycbxu4YlufZcuyljyib_XojZgdQ9e85M3TAuy3Nhpo9RJuY5b4uzuIl9yN4nTg9M1AwAxpw/exec";
+
+      // Fetch all items
+      async function fetchItems() {
+        const response = await fetch(`${API_URL}?action=get`);
+        const items = await response.json();
+        const tableBody = document.querySelector("#inventoryTable tbody");
+        tableBody.innerHTML = "";
+        items.forEach((item) => {
+          const row = `
+                    <tr>
+                        <td>${item["ID Barang"]}</td>
+                        <td>${item["Nama Barang"]}</td>
+                        <td>${item["Jumlah"]}</td>
+                        <td>${item["Kategori"]}</td>
+                        <td>${item["Tanggal Diperbarui"]}</td>
+                        <td><button onclick="deleteItem(${item["ID Barang"]})">Hapus</button></td>
+                    </tr>
+                `;
+          tableBody.insertAdjacentHTML("beforeend", row);
+        });
+      }
+
+      // Add a new item
+      document
+        .getElementById("addItemForm")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const data = {
+            id: document.getElementById("id").value,
+            name: document.getElementById("name").value,
+            quantity: document.getElementById("quantity").value,
+            category: document.getElementById("category").value,
+            updatedAt: document.getElementById("updatedAt").value,
+          };
+          await fetch(`${API_URL}?action=add`, {
+            method: "POST",
+            body: JSON.stringify(data),
+          });
+          alert("Item berhasil ditambahkan!");
+          fetchItems();
+        });
+
+      // Delete an item
+      async function deleteItem(id) {
+        await fetch(`${API_URL}?action=delete`, {
+          method: "POST",
+          body: JSON.stringify({ id }),
+        });
+        alert("Item berhasil dihapus!");
+        fetchItems();
+      }
+    </script>
+  </body>
+</html>
