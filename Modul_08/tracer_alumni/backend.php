@@ -1,38 +1,43 @@
 <?php
-$host = 'localhost';
-$user = 'root';
-$pass = '';
-$db = 'tracer_alumni';
+$json_file = 'data_alumni/data.json';
 
-// Koneksi ke database
-$conn = new mysqli($host, $user, $pass, $db);
+// Fungsi untuk membaca data dari file JSON
+function read_json($file) {
+    if (!file_exists($file)) {
+        return [];
+    }
+    $json_data = file_get_contents($file);
+    return json_decode($json_data, true);
+}
 
-if ($conn->connect_error) {
-    die('Connection failed: ' . $conn->connect_error);
+// Fungsi untuk menulis data ke file JSON
+function write_json($file, $data) {
+    file_put_contents($file, json_encode($data, JSON_PRETTY_PRINT));
 }
 
 // Tambahkan data alumni
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nama = $_POST['nama'];
-    $tahun_lulus = $_POST['tahun_lulus'];
-    $pekerjaan = $_POST['pekerjaan'];
-    $kontak = $_POST['kontak'];
+    $data = read_json($json_file);
 
-    $stmt = $conn->prepare("INSERT INTO alumni (nama, tahun_lulus, pekerjaan, kontak) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("siss", $nama, $tahun_lulus, $pekerjaan, $kontak);
-    $stmt->execute();
+    $new_alumni = [
+        "id" => count($data) + 1,
+        "nama" => $_POST['nama'],
+        "tahun_lulus" => (int)$_POST['tahun_lulus'],
+        "pekerjaan" => $_POST['pekerjaan'],
+        "kontak" => $_POST['kontak']
+    ];
+
+    $data[] = $new_alumni;
+    write_json($json_file, $data);
+
     echo "Alumni berhasil ditambahkan!";
-    $stmt->close();
-    $conn->close();
     exit;
 }
 
 // Ambil data alumni
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    $result = $conn->query("SELECT * FROM alumni");
-    $data = $result->fetch_all(MYSQLI_ASSOC);
+    $data = read_json($json_file);
     echo json_encode($data);
-    $conn->close();
     exit;
 }
 ?>

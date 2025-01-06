@@ -13,17 +13,17 @@
 
         <!-- Form Input -->
         <form id="alumniForm" class="mb-4">
-            <div class="row">
+            <div class="row g-3">
                 <div class="col-md-6">
                     <input type="text" id="nama" class="form-control" placeholder="Nama" required>
                 </div>
                 <div class="col-md-6">
-                    <input type="number" id="tahun_lulus" class="form-control" placeholder="Tahun Lulus" required>
+                    <input type="number" id="tahun_lulus" class="form-control" placeholder="Tahun Lulus" min="1900" max="2099" required>
                 </div>
-                <div class="col-md-6 mt-3">
+                <div class="col-md-6">
                     <input type="text" id="pekerjaan" class="form-control" placeholder="Pekerjaan" required>
                 </div>
-                <div class="col-md-6 mt-3">
+                <div class="col-md-6">
                     <input type="text" id="kontak" class="form-control" placeholder="Kontak" required>
                 </div>
             </div>
@@ -35,7 +35,7 @@
         <table class="table table-striped">
             <thead class="table-dark">
                 <tr>
-                    <th>ID</th>
+                    <th>ID</th> 
                     <th>Nama</th>
                     <th>Tahun Lulus</th>
                     <th>Pekerjaan</th>
@@ -43,7 +43,10 @@
                 </tr>
             </thead>
             <tbody id="dataTable">
-                <!-- Data dari database akan muncul di sini -->
+                <!-- Data dari backend.php atau JSON akan muncul di sini -->
+                <tr>
+                    <td colspan="5" class="text-center">Memuat data...</td>
+                </tr>
             </tbody>
         </table>
     </div>

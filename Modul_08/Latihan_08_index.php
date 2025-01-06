@@ -57,7 +57,7 @@
                         }
                     }
                     else {
-                        include "Latihan_08_home.php";
+                        //include "Latihan_08_home.php";
                     }
                     ?>
                 </article>

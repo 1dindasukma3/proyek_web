@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "nama": "Dinda Sukmaningsih",
+        "tahun_lulus": 2022,
+        "pekerjaan": "Data Analyst",
+        "kontak": "dinda@gmail.com"
+    },
+    {
+        "id": 2,
+        "nama": "Reyhan Fauzan",
+        "tahun_lulus": 2020,
+        "pekerjaan": "Web Developer",
+        "kontak": "reyhan@gmail.com"
+    },
+    {
+        "id": 3,
+        "nama": "Rizky Kurniawan",
+        "tahun_lulus": 2021,
+        "pekerjaan": "UI\/UX Designer",
+        "kontak": "rizki@gmail.com"
+    },
+    {
+        "id": 4,
+        "nama": "Grace Putri",
+        "tahun_lulus": 2020,
+        "pekerjaan": "Software Engineer",
+        "kontak": "grace.p@example.com"
+    },
+    {
+        "id": 5,
+        "nama": "Mingyu",
+        "tahun_lulus": 2019,
+        "pekerjaan": "Cloud Architect",
+        "kontak": "mingyu.uu@gmail.com"
+    }
+]
